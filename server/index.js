@@ -2,7 +2,8 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const MongoDB = require('./db');
-
+const cors = require('cors');
+require('dotenv').config();
 // Middleware
 app.use(express.json()); // Parse JSON bodies
 app.use(express.static(path.join(__dirname, '../client'))); // Serve static files
