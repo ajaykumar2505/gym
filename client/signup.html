@@ -283,7 +283,8 @@ document.getElementById('registrationForm').addEventListener('submit', async (ev
                 alert(hi ${data.data.name} you have successfully registered);
             }
             else {
-                alert("Failed to insert");
+                console.error(error);
+                alert("An unexpected error occurred. Please try again.");
             }
         } catch (error) {
             alert("Error: " + error.message);
