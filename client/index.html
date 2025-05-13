@@ -470,7 +470,13 @@
     function populatingworkoutspage(workoutsData, work) {
         var populatingworkouts = document.querySelector('.sscont1');
         if (work.length == 0) {
-            const mainworkoutsarray = ["Legs", "Chest", "Shoulders", "Back", "Abs"];
+            const mainworkoutsarray = [
+                {name: "Legs", image:"/images/"},
+                {name: "Chest",image:"" },
+                {name:"Shoulders",image:" " },
+               {name: "Back",image:"" },
+               {name: "Abs",image:""}
+            ];
             work = mainworkoutsarray;
         }
         var str = "";
@@ -479,16 +485,18 @@
             str += `<div class="sscont2">
                     <div class="sscont3">
                         <div>
-                            <h2 class="sshead">${work[i]} Workouts</h2>
+                            <h2 class="sshead">${work[i].name} Workouts</h2>
                             <p class="sspara1">7 exercises</p>
                         </div>
-                        <div class="ssimg"></div>
+                        <div class="ssimg">
+                        <img class="ssimgcont" src=${work[i].image} ></img>
+                        </div>
                     </div>`;
 
             var str1 = "";
             var cnt = 0;
             for (let ele of workoutsData) {
-                if (ele.focusarea.includes(work[i])) {
+                if (ele.focusarea.includes(work[i].name)) {
                     if (cnt > 2) {
                         break;
                     }
