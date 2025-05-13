@@ -279,10 +279,10 @@ document.getElementById('registrationForm').addEventListener('submit', async (ev
             });
 
             const json = await response.json();
-
-            if (json.success === true) {
-                alert(json.message);
-            } else {
+            if (data.success === true) {
+                alert(hi ${data.data.name} you have successfully registered);
+            }
+            else {
                 alert("Failed to insert");
             }
         } catch (error) {
