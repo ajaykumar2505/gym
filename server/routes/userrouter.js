@@ -13,7 +13,7 @@ router.post('/userdetailsinsertion', async (req, res) => {
         await newUser.save();
         return res.status(200).json({
             message: "Successfully Inserted",
-            success: true
+            success: true,
             data:data
         })
     } catch (error) {
