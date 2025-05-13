@@ -469,8 +469,7 @@
 
     function populatingworkoutspage(workoutsData, work) {
         var populatingworkouts = document.querySelector('.sscont1');
-        if (work.length == 0) {
-            const mainworkoutsarray = [
+           const mainworkoutsarray = [
                 {name: "Legs", image:"/images/legs.png"},
                 {name: "Chest",image:"/images/chest.png" },
                 {name:"Shoulders",image:"/images/shoulders.png" },
@@ -480,8 +479,21 @@
                 {name:"Arms",image:"/images/arms.png"},
                 {name:"Biceps",image:"/images/biceps.png"}
             ];
+        if (work.length == 0) {
             work = mainworkoutsarray;
-        }
+        }else {
+            let tempWork = [];
+            for (let i = 0; i < work.length; i++) {
+                let workoutName = work[i];
+                let matchedWorkout = mainworkoutsarray.find(item => item.name === workoutName);
+                let tempobj = {
+                    name: workoutName,
+                    image: matchedWorkout ? matchedWorkout.image : ""
+                };
+                tempWork.push(tempobj);
+            }
+            work = tempWork;
+        }
         var str = "";
 
         for (let i = 0; i < work.length; i++) {
